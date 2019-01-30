@@ -1,0 +1,26 @@
+<div *ngIf="!messages">Loading...</div>
+<div *ngIf="messages">
+  <div style="text-align:center">
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+  </div>
+  <div class="row">
+    <div class="column">
+      <h2>{{messages?.length}} latest messages shown</h2>
+      <h4 *ngFor="let message of messages">{{message.time}} - {{convertMessage(message.message)}}</h4>
+    </div>
+      <div class="column">
+        <ul>
+          <div *ngIf="latest">
+            <h3>Latest Message Information:</h3>
+            <h3>Time: {{latest.time}}</h3>
+            <h3>Morse: {{latest.message.toString()}}</h3>
+            <h3 style="color: darkblue">Message: {{convertMessage(latest.message)}} </h3>
+          </div>
+        </ul>
+      </div>
+  </div>
+  <hr>
+  <hr>
+</div>
